@@ -1,13 +1,150 @@
+/* You can add global styles to this file, and also import other style files */
 
-html,
-body {
+$primary: #304CDC;
+
+@import "../node_modules/bootstrap/scss/bootstrap-utilities.scss";
+@import "../node_modules/bootstrap/scss/_variables.scss";
+
+html, body {
+    height: 100vh;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.subHeading {
+    color: #858D9D;
+    font-size: 14px;
+}
+
+app-confirmation-modal {
+    display: block;
     height: 100%;
 }
 
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+.ellipse-menu {
+    min-width: 120px;
 }
 
-/* Bootstrap Icons - using CDN for now */
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css");
+.ant-breadcrumb-link {
+    font-weight: 500;
+}
+// .ant-list-item:not(:last-child) {
+//     padding-left: 20px;
+//     padding-right: 20px;
+
+//     &:hover {
+//         background-color: #E8F0FF;
+//     }
+// }
+
+.subHeading {
+    color: #858D9D;
+    font-size: 14px;
+}
+
+table {
+    button {
+        height: 23px !important;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+        font-size: 11px !important;
+    }
+
+    .ant-table-cell:not(:nth-child(2)) {
+        text-align: center !important;
+    }
+    th.ant-table-cell:nth-child(2) {
+        padding-left: 15px;
+    }
+}
+
+.ant-pagination-item {
+    border: none;
+    margin: 0;
+    background-color: #E4E4EC;
+    height: 45px;
+    min-width: 50px;
+    padding-left: 8px;
+    border-radius: 0;
+    padding-right: 8px;
+    display: inline-flex;
+    align-items: center;
+    
+    &:nth-child(2) {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
+    &:nth-last-child(2) {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+
+    a {
+        background-color: transparent;
+        min-width: 32px;
+        height: 32px;
+    }
+
+    &.ant-pagination-item-active {
+        a {
+            background-color: #fff;
+            color: #000;
+            border-radius: 4px;
+        }
+    }
+}
+
+.ant-pagination-prev, .ant-pagination-next {
+    display: inline-flex;
+    align-items: center;
+}
+
+.ant-pagination-next {
+    margin-left: 10px;
+}
+
+
+.ant-form-item-label > label {
+    height: 20px;
+}
+
+.ant-drawer-header {
+    border-bottom: none;
+}
+
+.ant-drawer-header-title {
+    flex-direction: row-reverse;
+}
+
+.ant-btn-dangerous {
+    color: #EB3D4D;
+    border-color: #EB3D4D;
+    background: #FEECEE;
+}
+
+.ant-pagination-disabled{
+    button{
+        background: #c0c7ef;
+        border-color: #e4e8f7;
+    }
+}
+.ant-btn-text {
+    color: #000;
+    background-color: #F0F3FF;
+    border-color: #DFDFDF;
+}
+
+.dashboard-controls {
+    @media screen and (max-width: 1200px) {
+        margin-top: 15px;
+    }
+    nz-select {
+        width: 160px;
+      }
+  
+      nz-input-group {
+        width: 140px;
+      }
+  }

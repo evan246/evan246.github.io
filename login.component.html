@@ -1,0 +1,105 @@
+<div>
+  <div nz-flex [nzVertical]="true" [nzAlign]="'center'" class="mt-4">
+    <h2 class="mb-0 fw-normal">Log in</h2>
+    <div class="subHeading">Login to access our door-to-door service.</div>
+  </div>
+
+  <div class="mt-4">
+    <form (ngSubmit)="login(form)" #form="ngForm">
+      <div>
+        <nz-form-item nz-col [nzSpan]="24">
+          <nz-form-label [nzSpan]="24" nzFor="emailAddress"
+            >Email</nz-form-label
+          >
+          <nz-form-control [nzSpan]="24" [nzErrorTip]="emailError">
+            <input
+              #emailModel="ngModel"
+              nz-input
+              name="emailAddress"
+              type="text"
+              id="emailAddress"
+              ngModel
+              placeholder="Enter email"
+              [pattern]="emailPattern"
+              required
+            />
+          </nz-form-control>
+
+          <ng-template #emailError>
+            @if (emailModel.touched && emailModel.control.errors?.['pattern']) {
+            <small class="text-danger">Email invalid</small>
+            } @else if (emailModel.touched &&
+            emailModel.control.errors?.['required']) {
+            <small class="text-danger">Email required</small>
+            }
+          </ng-template>
+        </nz-form-item>
+      </div>
+      <div class="mt-3">
+        <nz-form-item nz-col [nzSpan]="24">
+          <nz-form-label nzFor="password">Password</nz-form-label>
+          <nz-form-control [nzErrorTip]="passwordError">
+            <nz-input-group [nzSuffix]="suffixTemplate">
+              <input
+                type="password"
+                [nzStatus]="
+                  passwordModel.touched && passwordModel.invalid ? 'error' : ''
+                "
+                #passwordInput
+                nz-input
+                required
+                autocomplete="new-password"
+                #passwordModel="ngModel"
+                name="password"
+                id="password"
+                class="w-100"
+                placeholder="Enter Password"
+                ngModel
+              />
+              <ng-template #passwordError>
+                @if (passwordModel.touched &&
+                passwordModel.control.errors?.['pattern']) {
+                <small class="text-danger">Password invalid</small>
+                } @else if (passwordModel.touched &&
+                passwordModel.control.errors?.['required']) {
+                <small class="text-danger">Password required</small>
+                }
+              </ng-template>
+            </nz-input-group>
+            <ng-template #suffixTemplate>
+              <span
+                nz-icon
+                class="pointer"
+                [nzType]="
+                  passwordInput.type === 'text' ? 'eye-invisible' : 'eye'
+                "
+                (click)="
+                  passwordInput.type === 'password'
+                    ? (passwordInput.type = 'text')
+                    : (passwordInput.type = 'password')
+                "
+              ></span>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+
+      <div class="mt-2 text-end">
+        <div class="pointer" routerLink="/auth/forgot-password">
+          Forgot Password?
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button
+          nz-button
+          [nzType]="'primary'"
+          [disabled]="form.invalid"
+          class="px-5"
+        >
+          Log in
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
